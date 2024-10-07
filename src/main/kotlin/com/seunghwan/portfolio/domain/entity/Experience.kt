@@ -6,7 +6,7 @@ import jakarta.persistence.*
 class Experience(
     title: String,
     description: String,
-    starYear: Int,
+    startYear: Int,
     startMonth: Int,
     endYear: Int?,
     endMonth: Int?,
@@ -22,7 +22,7 @@ class Experience(
 
     var description: String = description
 
-    var starYear: Int = starYear
+    var startYear: Int = startYear
 
     var startMonth: Int = startMonth
 
@@ -46,12 +46,13 @@ class Experience(
         return "${endYear}.${endMonth}" // 2023.11
     }
 
-    fun update(title: String, description: String, starYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
+    fun update(title: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
         this.title = title
         this.description = description
-        this.starYear = starYear
+        this.startYear = startYear
         this.startMonth = startMonth
         this.endMonth = endMonth
+        this.endYear = endYear
         this.isActive = isActive
     }
 

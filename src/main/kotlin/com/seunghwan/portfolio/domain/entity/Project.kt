@@ -6,7 +6,7 @@ import jakarta.persistence.*
 class Project(
     name: String,
     description: String,
-    starYear: Int,
+    startYear: Int,
     startMonth: Int,
     endYear: Int?,
     endMonth: Int?,
@@ -22,7 +22,7 @@ class Project(
 
     var description: String = description
 
-    var starYear: Int = starYear
+    var starYear: Int = startYear
 
     var startMonth: Int = startMonth
 
@@ -49,12 +49,13 @@ class Project(
         return "${endYear}.${endMonth}" // 2023.11
     }
 
-    fun update(name: String, description: String, starYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
+    fun update(name: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
         this.name = name
         this.description = description
-        this.starYear = starYear
+        this.starYear = startYear
         this.startMonth = startMonth
         this.endMonth = endMonth
+        this.endYear = endYear
         this.isActive = isActive
     }
 
