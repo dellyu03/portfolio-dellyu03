@@ -10,7 +10,7 @@ class Experience(
     startMonth: Int,
     endYear: Int?,
     endMonth: Int?,
-    isActive: Boolean,
+    isActive: Boolean
 ) : BaseEntity() {
 
     @Id
@@ -26,40 +26,37 @@ class Experience(
 
     var startMonth: Int = startMonth
 
-    var endYear : Int? = endYear
+    var endYear: Int? = endYear
 
-    var endMonth : Int? = endMonth
+    var endMonth: Int? = endMonth
 
     var isActive: Boolean = isActive
 
-    @OneToMany(targetEntity = ExperienceDetail::class,
-        fetch = FetchType.LAZY,
-        cascade = [CascadeType.ALL])
+    @OneToMany(targetEntity = ExperienceDetail::class, fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @JoinColumn(name = "experience_id")
     var details: MutableList<ExperienceDetail> = mutableListOf()
 
-    fun getEndyearMonth(): String {
+    fun getEndYearMonth(): String {
         if (endYear == null || endMonth == null) {
             return "Present"
         }
 
-        return "${endYear}.${endMonth}" // 2023.11
+        return "${endYear}.${endMonth}"
     }
 
-    fun update(title: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
+    fun update(title: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean) {
         this.title = title
         this.description = description
         this.startYear = startYear
         this.startMonth = startMonth
-        this.endMonth = endMonth
         this.endYear = endYear
+        this.endMonth = endMonth
         this.isActive = isActive
     }
 
     fun addDetails(details: MutableList<ExperienceDetail>?) {
-        if(details != null){
+        if (details != null) {
             this.details.addAll(details)
         }
     }
-
 }

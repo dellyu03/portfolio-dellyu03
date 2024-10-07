@@ -9,13 +9,7 @@ import org.apache.catalina.Host
 import java.time.LocalDate
 
 @Entity
-class Achievement(
-    title: String,
-    description: String,
-    achievedDate: LocalDate?,
-    host : String,
-    isActive : Boolean
-) : BaseEntity() {
+class Achievement(title: String, description: String, achievedDate: LocalDate?, host: String, isActive: Boolean) : BaseEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +20,10 @@ class Achievement(
 
     var description: String = description
 
-    var host: String = host
-
     var achievedDate: LocalDate? = achievedDate
 
-    var isActive : Boolean = isActive
+    var host: String = host
+
+    var isActive: Boolean = isActive
 
 }

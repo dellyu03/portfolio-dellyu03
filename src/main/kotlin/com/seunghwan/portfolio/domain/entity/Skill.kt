@@ -10,6 +10,7 @@ class Skill(name: String, type: String, isActive: Boolean) : BaseEntity() {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "skill_id")
     var id: Long? = null
+
     var name: String = name
 
     @Column(name = "skill_type")
@@ -17,4 +18,5 @@ class Skill(name: String, type: String, isActive: Boolean) : BaseEntity() {
     var type: SkillType = SkillType.valueOf(type)
 
     var isActive: Boolean = isActive
+
 }

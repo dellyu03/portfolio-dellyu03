@@ -22,4 +22,5 @@ class ExperienceDetail(content: String, isActive: Boolean) : BaseEntity() {
         this.content = content
         this.isActive = isActive
     }
+
 }

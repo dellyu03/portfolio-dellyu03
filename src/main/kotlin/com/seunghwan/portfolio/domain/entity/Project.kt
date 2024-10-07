@@ -10,7 +10,7 @@ class Project(
     startMonth: Int,
     endYear: Int?,
     endMonth: Int?,
-    isActive: Boolean,
+    isActive: Boolean
 ) : BaseEntity() {
 
     @Id
@@ -22,45 +22,43 @@ class Project(
 
     var description: String = description
 
-    var starYear: Int = startYear
+    var startYear: Int = startYear
 
     var startMonth: Int = startMonth
 
-    var endYear : Int? = endYear
+    var endYear: Int? = endYear
 
-    var endMonth : Int? = endMonth
+    var endMonth: Int? = endMonth
 
     var isActive: Boolean = isActive
 
-    @OneToMany(targetEntity = ProjectDetail::class,
-        fetch = FetchType.LAZY,
-        cascade = [CascadeType.ALL])
+    @OneToMany(targetEntity = ProjectDetail::class, fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
     @JoinColumn(name = "project_id")
     var details: MutableList<ProjectDetail> = mutableListOf()
 
-    @OneToMany(mappedBy = "project")
-    var skills : MutableList<ProjectSkill> = mutableListOf()
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
+    var skills: MutableList<ProjectSkill> = mutableListOf()
 
-    fun getEndyearMonth(): String {
+    fun getEndYearMonth(): String {
         if (endYear == null || endMonth == null) {
             return "Present"
         }
 
-        return "${endYear}.${endMonth}" // 2023.11
+        return "${endYear}.${endMonth}"
     }
 
-    fun update(name: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean){
+    fun update(name: String, description: String, startYear: Int, startMonth: Int, endYear: Int?, endMonth: Int?, isActive: Boolean) {
         this.name = name
         this.description = description
-        this.starYear = startYear
+        this.startYear = startYear
         this.startMonth = startMonth
-        this.endMonth = endMonth
         this.endYear = endYear
+        this.endMonth = endMonth
         this.isActive = isActive
     }
 
     fun addDetails(details: MutableList<ProjectDetail>?) {
-        if(details != null){
+        if (details != null) {
             this.details.addAll(details)
         }
     }

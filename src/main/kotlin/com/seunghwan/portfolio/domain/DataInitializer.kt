@@ -1,4 +1,4 @@
-package com.seunghwan.portfolio
+package com.seunghwan.portfolio.domain
 
 import com.seunghwan.portfolio.domain.constant.SkillType
 import com.seunghwan.portfolio.domain.entity.*

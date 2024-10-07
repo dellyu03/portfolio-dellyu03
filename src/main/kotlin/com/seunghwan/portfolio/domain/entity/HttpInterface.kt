@@ -14,10 +14,8 @@ class HttpInterface(httpServletRequest: HttpServletRequest) : BaseEntity() {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "http_interface_id")
     var id: Long? = null
-    
-    var cookies: String? = httpServletRequest.cookies
-        ?.map{ "${it.name}:${it.value}" }
-        ?.toString()
+
+    var cookies: String? = httpServletRequest.cookies?.map { "${it.name}:${it.value}" }?.toString()
 
     var referer: String? = httpServletRequest.getHeader("referer")
 
@@ -29,5 +27,6 @@ class HttpInterface(httpServletRequest: HttpServletRequest) : BaseEntity() {
 
     var requestUri: String? = httpServletRequest.requestURI
 
-    var userAgent: String? = httpServletRequest.getHeader("user-Agent")
+    var userAgent: String? = httpServletRequest.getHeader("user-agent")
+
 }
