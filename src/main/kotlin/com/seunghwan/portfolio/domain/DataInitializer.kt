@@ -33,7 +33,7 @@ class DataInitializer(
             Achievement(
                 title = "정보처리기사",
                 description = "설명입니다2",
-                host = "hiㅑㅑㅑㅑㅑㅑ",
+                host = "hi",
                 achievedDate = LocalDate.of(2024, 8, 13),
                 isActive = true
             )

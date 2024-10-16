@@ -1,6 +1,5 @@
 package com.seunghwan.portfolio.presentation.service
 
-import com.seunghwan.portfolio.domain.entity.Introduction
 import com.seunghwan.portfolio.presentation.dto.IntroductionDTO
 import com.seunghwan.portfolio.presentation.dto.LinkDTO
 import com.seunghwan.portfolio.presentation.dto.ProjectDTO
